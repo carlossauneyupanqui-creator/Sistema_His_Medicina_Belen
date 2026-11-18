@@ -183,7 +183,15 @@ with c5:
   turno_op = st.selectbox(
       "Turno *", ["Mañana (M)", "Tarde (T)", "Noche (N)"]
   )
-
+with c6:
+  ups_opcion = st.selectbox(
+      "UPS / Servicio *",
+      [
+          "MEDICINA",
+          "300303 - CIRUGIA EN CONS. EXT / TOPICO",
+          "301604 - ECOGRAFIA GINECO-OBSTETRICA",
+      ],
+  )
 datos_med = medicos_predefinidos[dni_seleccionado]
 
 if dni_seleccionado == "MANUAL":
