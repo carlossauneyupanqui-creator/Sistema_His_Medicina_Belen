@@ -187,7 +187,7 @@ with c6:
   ups_opcion = st.selectbox(
       "UPS / Servicio *",
       [
-          "MEDICINA",
+          "302303 - MEDICINA GENERAL",
           "300303 - CIRUGIA EN CONS. EXT / TOPICO",
           "301604 - ECOGRAFIA GINECO-OBSTETRICA",
       ],
