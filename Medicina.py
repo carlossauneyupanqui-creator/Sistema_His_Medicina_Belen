@@ -36,7 +36,7 @@ if "reset_form" in st.session_state and st.session_state.reset_form:
 
 
 # --- CARGA MASIVA AUTOMÁTICA DEL CATÁLOGO CIE-10 OFICIAL DESDE EXCEL ---
-@st.cache_data
+@st.cache_data (ttl=0)
 def cargar_catalogo_cie10():
   catalogo = {}
   try:
