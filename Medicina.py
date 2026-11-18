@@ -139,7 +139,7 @@ st.markdown("### 🏥 Servicio de Medicina")
 st.markdown("**Registro Diario de Atención - Formato HIS MINSA**")
 
 st.markdown("#### 1. Información del Establecimiento y Profesional")
-c1, c2, c3, c4, c5 = st.columns(5)
+c1, c2, c3, c4, c5, c6 = st.columns([1.1, 1.3, 1.4, 1.4, 1.1, 2.2])
 
 with c1:
   anio = st.text_input("Año *", "2026")
@@ -177,7 +177,7 @@ with c3:
   )
 with c4:
   dni_seleccionado = st.selectbox(
-      "DNI del Profesional *", list(medicos_predefinidos.keys())
+      "DNI Profesional *", list(medicos_predefinidos.keys())
   )
 with c5:
   turno_op = st.selectbox(
@@ -192,6 +192,7 @@ with c6:
           "301604 - ECOGRAFIA GINECO-OBSTETRICA",
       ],
   )
+
 datos_med = medicos_predefinidos[dni_seleccionado]
 
 if dni_seleccionado == "MANUAL":
@@ -326,7 +327,6 @@ for i in range(1, 6):
   with r1:
     st.markdown(f"#### {i}")
   with r2:
-    # Verificamos si se seleccionó la opción manual para dividir la columna en dos partes horizontales
     seleccion_actual = st.session_state.get(
         f"diag_{i}", "-- Seleccione o busque CIE-10 --"
     )
@@ -504,7 +504,6 @@ if btn_guardar:
     }
     st.session_state.lista_pacientes_medicina.append(nuevo_paciente)
 
-    # Activar la bandera de reinicio general (limpia DNI, datos, diagnósticos y manuales)
     st.session_state.reset_form = True
 
     st.success(
@@ -666,7 +665,6 @@ with st.sidebar:
         except Exception:
           img_element = None
 
-    # --- LÓGICA DE FIRMA EN CAJITA PROTEGIDA Y CENTRADA ---
     if img_element:
       tabla_contenido_firma = Table(
           [
@@ -715,7 +713,6 @@ with st.sidebar:
         ])
     )
 
-    # --- LOGOTIPO IZQUIERDO CIRCULAR (BELEN) ---
     archivos_logo = list(script_dir.glob("[Bb]elen.*")) + list(
         script_dir.glob("logo_derecha.*")
     )
@@ -864,7 +861,7 @@ with st.sidebar:
             Paragraph(anio_cort, val_style),
             Paragraph(mes_num, val_style),
             Paragraph(centro_salud, val_style),
-            Paragraph("MEDICINA", val_style),
+            Paragraph(ups_opcion, val_style),
             Paragraph(nombres_profesional, val_style),
             Paragraph(dni_profesional, val_style),
         ],
